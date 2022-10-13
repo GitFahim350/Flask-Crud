@@ -1,0 +1,77 @@
+{%extends 'base.html'%}
+
+{%block title%}
+      index page
+{%endblock title%}
+{%block body%}
+
+
+{% if notice %}
+<div class="alert alert-success" role="alert">
+  {{notice}}
+</div>
+{% endif %}
+
+
+<form method="post">
+  <div class="mb-3">
+    <label for="FirstName" class="form-label">FirstName</label>
+    <input type="text" class="form-control" id="FirstName" name="FirstName" />
+  </div>
+  <div class="mb-3">
+    <label for="LastName" class="form-label">LastName</label>
+    <input type="text" class="form-control" id="LastName" name="LastName" />
+  </div>
+  <div class="mb-3">
+    <label for="Email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="Email"
+      name="Email"
+      aria-describedby="emailHelp"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="Password" class="form-label">Password</label>
+    <input type="password" name="Password" class="form-control" id="Password" />
+  </div>
+  <div class="mb-3">
+    <label for="Confirm_password" class="form-label">Confirm Password</label>
+    <input
+      type="password"
+      class="form-control"
+      name="ConfirmPassword"
+      id="Confirm_password"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+    <tr>
+      <td>{{row[0]}}</td>
+      <td>{{row[1]}}</td>
+      <td>{{row[2]}}</td>
+      <td>{{row[3]}}</td>
+      <td class="d-flex flex-" style="cursor: pointer;"> 
+        <a href="/update/{{row[0]}}" >update</a>
+        <a href="/delete/{{row[0]}}" >delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{%endblock body%}

@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+
+{%block title%}
+update page
+{%endblock title%}
+{%block body%}
+
+
+<h3>Update user</h3>
+<form method="post">
+    
+  <div class="mb-3">
+    <label for="FirstName" class="form-label">FirstName</label>
+    <input type="text" class="form-control" id="FirstName" name="FirstName" value="{{data[0][1]}}" />
+  </div>
+  <div class="mb-3">
+    <label for="LastName" class="form-label">LastName</label>
+    <input type="text" class="form-control" id="LastName" name="LastName" value="{{data[0][2]}}"/>
+  </div>
+  <div class="mb-3">
+    <label for="Email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="Email"
+      name="Email"
+      value="{{data[0][3]}}"
+      aria-describedby="emailHelp"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="Password" class="form-label">Password</label>
+    <input type="password" name="Password" value="{{data[0][4]}}" class="form-control" id="Password" />
+  </div>
+  <div class="mb-3">
+    <label for="Confirm_password" class="form-label">Confirm Password</label>
+    <input
+      type="password"
+      class="form-control"
+      name="ConfirmPassword"
+      value="{{data[0][5]}}"
+      id="Confirm_password"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+
+{%endblock body%}
